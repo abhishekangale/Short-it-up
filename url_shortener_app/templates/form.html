@@ -1,0 +1,172 @@
+{% load static %}
+<html lang="en">
+
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+
+	<title>URL Shortener </title>
+
+	<!-- Bootstrap Core CSS -->
+	<link href="{% static 'bootstrap.min.css' %}" rel="stylesheet" type="text/css">
+
+	<style type="text/css">
+		header {
+			text-align: center;
+			background: lightseagreen;
+			color: white;
+			position: relative;
+		}
+
+		header .container {
+			padding-top: 60px;
+			padding-bottom: 40px;
+			position: relative;
+			z-index: 1
+		}
+
+		header .intro-text .name {
+			display: block;
+			font-family: "Montserrat", "Helvetica Neue", Helvetica, Arial, sans-serif;
+			text-transform: uppercase;
+			font-weight: 700;
+			font-size: 2em;
+		}
+
+		@media (min-width: 768px) {
+			header .container {
+				padding-top: 120px;
+				padding-bottom: 70px;
+			}
+
+			header .intro-text .name {
+				font-size: 4.75em;
+			}
+
+			header .intro-text .skills {
+				font-size: 2em;
+			}
+		}
+
+		.navbar-custom {
+			background: #2C3E50;
+			font-family: "Montserrat", "Helvetica Neue", Helvetica, Arial, sans-serif;
+			text-transform: none;
+			font-weight: 700;
+			font-size: x-large;
+			border: none;
+			padding-left: 5%;
+			padding-right: 5%;
+			/* text-align: center; */
+			color: white;
+			width: 100%;
+		}
+
+		#id_src {
+			display: block;
+			height: 44px;
+			padding: 6px 12px;
+			font-size: 18px;
+			color: #555;
+			background-color: #fff;
+			border: 1px solid #ccc;
+			border-radius: 4px;
+			width: 600px;
+		}
+
+		#id_custom {
+			display: inline-block;
+			height: 30px;
+			font-size: 18px;
+			border: 1px solid #ccc;
+			border-radius: 4px;
+		}
+
+		#form_input_error {
+			color: red;
+			padding: 5px 15px;
+			display: inline-block;
+			font-size: 20px;
+			font-weight: 700;
+			letter-spacing: 1px;
+		}
+
+		#form_output {
+			background: #2C3E50;
+			line-height: 50px;
+			margin-top: 2px;
+			height: 0;
+			width: 60%;
+			margin: 0 auto;
+			font-size: 25px;
+		}
+
+		#form_output a {
+			color: black;
+			font-size: 25px;
+		}
+
+		#form_output a:hover {
+			color: blue;
+		}
+
+		footer {
+			color: white;
+			width: 100%;
+			position: absolute;
+			left: 0;
+			bottom: 0;
+			padding: 1px 1px;
+			background-color: #233140;
+		}
+
+		input { color: black }
+
+	</style>
+
+</head>
+
+<body class="index homepage">
+
+	<nav class="navbar navbar-default navbar-fixed-top navbar-custom">
+		<div class="container-fluid">
+			<div class="navbar-header">
+				<a class="navbar-brand" href="#" style="color: white; font-size: x-large;">URL Shortener</a>
+			</div>
+		</div>
+	</nav>
+
+	<header style="height: 97%;">
+		<div class="container">
+			<div class="row">
+				<div class="intro-text">
+					<h2 class="name">Shortening your URL?</h2>
+					<hr class="star-light">
+					<p><span class="skills">Possible on a mouse click.</span></p><br />
+
+					<form method="post" class="form-inline" id="form_input">
+						{% csrf_token %}
+						{{ form }}
+						<br><br>
+						<input class="btn btn-primary" type="submit" value="Shorten" style="font-size: 24px;">
+					</form>
+
+				</div>
+			</div>
+		</div>
+	</header>
+
+	<!-- Footer -->
+	<footer class="text-center">
+		<div class="container">
+			<div class="row">
+				<h3> Created by -
+					<a href="https://www.github.com/HustleRRR/" target="_blank" style="color: white;"> Abhishek Angale </a>
+				</h3>
+			</div>
+		</div>
+	</footer>
+
+</body>
+
+</html>

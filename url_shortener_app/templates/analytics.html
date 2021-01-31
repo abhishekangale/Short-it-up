@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Visits</title>
+
+    <style type="text/css">
+        table,
+        th,
+        td {
+            border: 1px solid black;
+            border-collapse: collapse;
+            padding: 15px;
+            border-spacing: 5px;
+        }
+    </style>
+
+</head>
+
+<body style="text-align: center;">
+    <h1> Analytics of our URL-Shortner </h1>
+    <br>
+    <table style="margin: 0 auto;">
+        <thead>
+            <tr>
+                <th> longurl </th>
+                <th> shorturl </th>
+                <th> Visits </th>
+                <th> Location </th>
+            </tr>
+        </thead>
+        <tbody>
+
+            {% for item in data %}
+            <tr>
+                <!-- <td><a href="https://rr-url.herokuapp.com/{{ d.src }}" target="_blank"> https://rr-url.herokuapp.com/{{ d.src }} </a></td> -->
+                <td> {{ item.longurl }} </td>
+                <td> {{ item.shorturl }} </td>
+                <td> {{ item.visit_count }} </td>
+                <td> {{ item.city }} </td>
+            </tr>
+            {% endfor %}
+
+        </tbody>
+    </table>
+</body>
+
+</html>
